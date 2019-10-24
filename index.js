@@ -1,22 +1,20 @@
 (() => {
 
-    // step 1: game logic
-
-    // we have game choices.. either a user can choose between rock, paper and scissors.. or can be randomly chosen depending on type of game
-    // once the choice is made, it needs to be compared to verify winning combination
-
-    // step 2: adding game UI to handle user input
-
     const gameChoice = ['rock', 'paper', 'scissors']
 
     /**
      * 
-     * @param choice - array of choices available to select  
+     * @param {Array} choice - array of choices available to select  
      */
     const pickRandom = (choice = gameChoice) => {
         return Math.floor(Math.random() * choice.length)
     }
 
+    /**
+     * 
+     * @param {int} fpChoice 
+     * @param {int} spChoice 
+     */
     const results = (fpChoice, spChoice) => {
         /**
          * Matrix denotes result set
