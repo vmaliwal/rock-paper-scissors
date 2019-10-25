@@ -13,8 +13,8 @@ const pickRandom = (choice = gameElements()) => {
 
 /**
  * 
- * @param {int} fpChoice 
- * @param {int} spChoice 
+ * @param {Number} fpChoice 
+ * @param {Number} spChoice 
  */
 const results = (fpChoice, spChoice) => {
 

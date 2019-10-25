@@ -184,7 +184,4 @@ const main = async () => {
     }
 }
 
-/**
- * Invoke main function
- */
-main()
+module.exports.init = main()
