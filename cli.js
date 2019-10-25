@@ -2,11 +2,18 @@ const {playGame, pickRandomElement, elements} = require('./game')
 
 const readline = require('readline')
 
+/**
+ * FOR IO using stdin
+ * Refer: https://nodejs.org/api/readline.html
+ */
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
 
+/**
+ * Text to display when the game starts
+ */
 const startQuestionText = () => {
     const text = `
     Let's play Rock, Paper & Scissors --
@@ -20,6 +27,10 @@ const startQuestionText = () => {
     return text
 }
 
+/**
+ * Text to display with choices of elements
+ * @param {Array} el 
+ */
 const playWithComputerText = (el = elements) => {
 
     const arr = el.map((e, i) => {
@@ -36,6 +47,10 @@ const playWithComputerText = (el = elements) => {
     return text
 }
 
+/**
+ * Returns a promise funtion, while waiting for user input on STDIN
+ * @param {String} question 
+ */
 const questionFn = (question) => {
     return new Promise( (res) => {
         rl.question(question, answer => {
@@ -44,6 +59,9 @@ const questionFn = (question) => {
     })
 }
 
+/**
+ * Async Function that waits for input from Player 1
+ */
 const playerOneChoice = async () => {
     let playerChoice = await questionFn(playWithComputerText())
     playerChoice = Number(playerChoice)
@@ -51,6 +69,9 @@ const playerOneChoice = async () => {
     return playerChoice
 }
 
+/**
+ * Entry point
+ */
 (async function main() {
     let answer = await questionFn(startQuestionText())
     answer = Number(answer)
@@ -61,17 +82,21 @@ const playerOneChoice = async () => {
 
             let choice = -1
 
-            while (choice < 0 || choice > elements.length) {
+            // If invalid choice 
+            while (choice <= 0 || choice > elements.length) {
                                 
                 choice = await playerOneChoice()
 
 
-                if (choice < 0 || choice > elements.length)
+                if (choice <= 0 || choice > elements.length)
                     console.log("Please choose a valid option")
 
             }
 
-            console.log(`Thank you for choosing ${choice}. The winner of your game is ${playGame(choice, pickRandomElement())}`)             
+            // because array starts at 0
+            choice = choice - 1
+
+            console.log(`Thank you for choosing ${elements[choice]}. The winner of your game is ${playGame(choice, pickRandomElement())}`)             
             break
         }
         case 2: {
