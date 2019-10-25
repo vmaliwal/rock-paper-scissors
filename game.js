@@ -39,8 +39,8 @@ const results = (fpChoice, spChoice) => {
 
     const resultsObj = {
         't': 'TIE',
-        'p1': 'Player 1',
-        'p2': 'Player 2'
+        'p1': 'Player 1 WINS',
+        'p2': 'Player 2 WINS'
     }
 
     const mapResults = resultsArr[fpChoice][spChoice]

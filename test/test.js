@@ -42,11 +42,11 @@ describe('The playGame method should:', () => {
     })
 
     it('return Player 1 if Player 1 chooses ROCK and Player 2 chooses SCISSORS', () => {
-        expect(playGame(0,2)).to.equal('Player 1')
+        expect(playGame(0,2)).to.equal('Player 1 WINS')
     })
 
     it('return Player 2 if Player 1 chooses PAPER and Player 2 chooses SCISSORS', () => {
-        expect(playGame(1,2)).to.equal('Player 2')
+        expect(playGame(1,2)).to.equal('Player 2 WINS')
     })
 
 })
