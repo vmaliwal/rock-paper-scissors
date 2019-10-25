@@ -17,20 +17,25 @@ const pickRandom = (choice = gameElements()) => {
  * @param {int} spChoice 
  */
 const results = (fpChoice, spChoice) => {
+
+    if ( fpChoice === undefined || spChoice === undefined || 
+        typeof fpChoice != "number" || typeof spChoice != "number" )
+            return
+
     /**
      * Matrix denotes result set
-     * where x axis is first player
-     * y axis is second player
+     * where rows is first player or player 1
+     * columns is second player or player 2
      * 
      *   r  p  s
-     * r t p1 p2
-     * p p2 t p1
-     * s p1 p2 t
+     * r t p2 p1
+     * p p1 t p2
+     * s p2 p1 t
      */
     const resultsArr  = [
-        ['t','p1','p2'],
-        ['p2','t','p1'],
-        ['p1','p2','t']
+        ['t','p2','p1'],
+        ['p1','t','p2'],
+        ['p2','p1','t']
     ]
 
     const resultsObj = {

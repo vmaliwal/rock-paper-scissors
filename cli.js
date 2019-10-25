@@ -1,4 +1,4 @@
-const {playGame, pickRandomElement, elements} = require('./index.js')
+const {playGame, pickRandomElement, elements} = require('./game')
 
 const readline = require('readline')
 
