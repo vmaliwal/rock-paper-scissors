@@ -1,7 +1,7 @@
 const { describe } = require('mocha')
 const { expect } = require('chai')
 
-const { playGame, pickRandomElement, elements } = require('../game')
+const { playGame, pickRandomElement, elements, isNumber } = require('../game')
 
 describe('The elements array should:', () => {
     it('be non-empty', () => {
@@ -47,6 +47,21 @@ describe('The playGame method should:', () => {
 
     it('return Player 2 if Player 1 chooses PAPER and Player 2 chooses SCISSORS', () => {
         expect(playGame(1,2)).to.equal('Player 2')
+    })
+
+})
+
+describe('The isNumber method should:', () => {
+    it('be true when checked for 2', () => {
+        expect(isNumber(2)).to.be.true
+    })
+
+    it('be false when checked for undefined', () => {
+        expect(isNumber()).to.be.false
+    })
+
+    it('be false when checked for string "2"', () => {
+        expect(isNumber("2")).to.be.false
     })
 
 })

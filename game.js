@@ -18,8 +18,7 @@ const pickRandom = (choice = gameElements()) => {
  */
 const results = (fpChoice, spChoice) => {
 
-    if ( fpChoice === undefined || spChoice === undefined || 
-        typeof fpChoice != "number" || typeof spChoice != "number" )
+    if (!isNumber(fpChoice) || !isNumber(spChoice))
             return
 
     /**
@@ -49,5 +48,18 @@ const results = (fpChoice, spChoice) => {
     return resultsObj[mapResults]
 }
 
-module.exports =  { playGame: results, pickRandomElement: pickRandom, elements: gameElements() }
+/**
+ * Checks if typeof is a number
+ * @param {Number} num 
+ */
+const isNumber = (num) => {
+    return (typeof num === "number" && !isNaN(num))
+}
+
+module.exports =  { 
+    playGame: results, 
+    pickRandomElement: pickRandom, 
+    elements: gameElements(),
+    isNumber: isNumber 
+}
 
